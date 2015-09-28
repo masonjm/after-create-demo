@@ -11,9 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150928192105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "deal_prizes", force: :cascade do |t|
+    t.integer  "deal_id"
+    t.integer  "admin_user_id"
+    t.integer  "prize_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "deal_prizes", ["deal_id"], name: "index_deal_prizes_on_deal_id", using: :btree
+
+  create_table "deals", force: :cascade do |t|
+    t.integer  "prizes_number", default: 5
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_foreign_key "deal_prizes", "deals"
 end

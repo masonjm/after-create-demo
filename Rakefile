@@ -4,3 +4,14 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+task demo: :environment do
+  puts "Deal count (before): #{Deal.count}"
+  puts "DealPrize count (before): #{DealPrize.count}"
+  puts "Creating a Deal"
+  Deal.create!
+  puts "Deal count (after): #{Deal.count}"
+  puts "DealPrize count (after): #{DealPrize.count}"
+  puts "Showing log"
+  puts `tail -n 20 log/#{Rails.env}.log`
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deal_id: 
+  admin_user_id: 1
+  prize_id: 1
+
+two:
+  deal_id: 
+  admin_user_id: 1
+  prize_id: 1
